@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Weather.css'
+// importing assets from assets folder
 import search_icon from '../assets/search.png'
 import cloudy_icon from '../assets/cloudy.png'
 import drizzle_icon from '../assets/drizzle.png'
@@ -9,10 +10,34 @@ import snowy_icon from '../assets/snowy.png'
 import sunny_icon from '../assets/sunny.png'
 import wind_icon from '../assets/wind.png'
 
+// creating weather component
 const Weather = () => {
 
+    // 
+    const inputRef = useRef()
+
+    // state to hold weather data
     const [weatherData, setWeatherData] = useState(false);
 
+    // mapping weather icons to openweathermap icons
+    const allIcons = {
+        "01d": sunny_icon,
+        "01n": sunny_icon,
+        "02d": cloudy_icon,
+        "02n": cloudy_icon,
+        "03d": cloudy_icon,
+        "03n": cloudy_icon,
+        "04d": cloudy_icon,
+        "04n": cloudy_icon,
+        "09d": drizzle_icon,
+        "09n": drizzle_icon,
+        "10d": rainy_icon,
+        "10n": rainy_icon,
+        "13d": snowy_icon,
+        "13n": snowy_icon,
+    }
+
+    //  function to fetch weather data from openweathermap api 
     const search = async (city)=> {
         try {
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`
@@ -22,10 +47,15 @@ const Weather = () => {
             const data = await response.json();
 
             console.log(data);
+
+            const icon = allIcons[data.weather[0].icon] || sunny_icon; // default icon as sunny icon if no icon is available
+
             setWeatherData({
                 humidity: data.main.humidity,
                 windSpeed: data.wind.speed,
-                temperature: data.main.temp,
+                temperature: Math.floor(data.main.temp),
+                location: data.name,
+                icon: icon
 
             })
 
@@ -34,6 +64,7 @@ const Weather = () => {
         }
     }
 
+    // testing search logic / default city
     useEffect(()=> {
         search("lagos");
     },[])
@@ -41,24 +72,24 @@ const Weather = () => {
     return (
         <div className='weather'>
             <div className="search-bar">
-                <input type="text" placeholder='Search' />
-                <img src={search_icon} alt="" />
+                <input ref={inputRef} type="text" placeholder='Search' />
+                <img src={search_icon} onClick={()=>search(inputRef.current.value)} alt="search" />
             </div>
-            <img className='weather_icon' src={sunny_icon} alt="" />
-            <p className='temperature'>29°c</p>
-            <p className='location'>Lagos</p>
+            <img className='weather_icon' src={weatherData.icon} alt="" />
+            <p className='temperature'>{weatherData.temperature}°c</p>
+            <p className='location'>{weatherData.location}</p>
             <div className='weather-data'>
                 <div className="col">
                     <img className='mini-icon' src={humidity_icon} alt="" />
                     <div>
-                        <p>91%</p>
+                        <p>{weatherData.humidity} %</p>
                         <span>Humidity</span>
                     </div>
                 </div>
                 <div className="col">
                     <img className='mini-icon' src={wind_icon} alt="" />
                     <div>
-                        <p>3.6 km/h</p>
+                        <p>{weatherData.windSpeed} km/h</p>
                         <span>Wind</span>
                     </div>
                 </div>
