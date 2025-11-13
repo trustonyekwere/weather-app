@@ -3,9 +3,11 @@ import './Weather.css'
 // importing assets from assets folder
 import search_icon from '../assets/search.png'
 import cloudy_icon from '../assets/cloudy.png'
+import clouds_icon from '../assets/clouds.png'
 import drizzle_icon from '../assets/drizzle.png'
 import humidity_icon from '../assets/humidity.png'
 import rainy_icon from '../assets/rainy.png'
+import storm_icon from '../assets/storm.png'
 import snowy_icon from '../assets/snowy.png'
 import sunny_icon from '../assets/sunny.png'
 import night_icon from '../assets/night.png'
@@ -26,16 +28,16 @@ const Weather = () => {
         "01n": night_icon,
         "02d": cloudy_icon,
         "02n": night_icon,
-        "03d": cloudy_icon,
-        "03n": night_icon,
+        "03d": clouds_icon,
+        "03n": clouds_icon,
         "04d": cloudy_icon,
         "04n": night_icon,
         "09d": drizzle_icon,
         "09n": drizzle_icon,
         "10d": rainy_icon,
         "10n": rainy_icon,
-        "11d": rainy_icon,
-        "11n": rainy_icon,
+        "11d": storm_icon,
+        "11n": storm_icon,
         "13d": snowy_icon,
         "13n": snowy_icon,
         "50d": wind_icon,
