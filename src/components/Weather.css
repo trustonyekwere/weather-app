@@ -69,13 +69,26 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    font-size: 22px;
+    font-size: 18px;
     justify-content: left;
 }
 
-.weather-data .col .span {
+.weather-data .col2 span{
+    font-weight: 600;
+}
+
+.weather-data .col2 p {
+    font-size: 22px;
+}
+
+.weather-data .col span {
     display: block;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.weather-data .col p {
+    font-size: 22px;
 }
 
 .mini-icon {
