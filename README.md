@@ -2,4 +2,6 @@
 
 A weather app with clean ui and fully functional ux. 
 
-changes details according to the state selected from the search bar.
+Updates data according to the city selected from the search bar.
+
+Built using React.Js
