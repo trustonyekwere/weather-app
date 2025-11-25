@@ -123,7 +123,8 @@
 
 .mini-icon {
         width: clamp(40px, 22%, 80px);
-        margin-top: 10px;
+        margin-top: 0px !important;
+        margin-bottom: 6px;
 }
 
 /* Smaller screens: stack data vertically and tighten spacing */
@@ -157,14 +158,25 @@
 
         .weather-data .col,
         .weather-data .col2 {
-                flex: none;
-                width: 40%;
+                flex: column;
                 justify-content: center;
                 text-align: center;
+                align-items: end;
         }
 
         .weather-data .col2 p {
                 min-width: 90px;
+        }
+
+
+        .weather-data .col span,
+        .weather-data .col2 span {
+                font-size: 1.2em;
+        }
+
+        .weather-data .col2 .mini-icon,
+        .weather-data .col .mini-icon {
+                max-width: 70%;
         }
 }
 
