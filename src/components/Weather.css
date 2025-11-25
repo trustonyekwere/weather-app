@@ -168,7 +168,6 @@
                 min-width: 50px;
         }
 
-
         .weather-data .col span,
         .weather-data .col2 span {
                 font-size: 1.2em;
@@ -181,7 +180,7 @@
 }
 
 /* Larger screens: allow slightly wider card */
-@media (min-width: 1024px) {
+@media (min-width: 480px) {
         .weather {
                 max-width: 520px;
                 padding: 3rem;
@@ -192,10 +191,8 @@
                 flex: 1 1 40%;
         }
 
-        .weather-data {
-                /* flex-direction: row; */
-                align-items: center;
-                margin-top: 24px;
-                padding: 0 0.5rem;
+        .weather-data .col2 .mini-icon,
+        .weather-data .col .mini-icon {
+                margin-top: 10px !important;
         }
 }
