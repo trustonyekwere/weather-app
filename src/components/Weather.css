@@ -124,7 +124,7 @@
 .mini-icon {
         width: clamp(40px, 22%, 80px);
         margin-top: 0px !important;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
 }
 
 /* Smaller screens: stack data vertically and tighten spacing */
@@ -165,7 +165,7 @@
         }
 
         .weather-data .col2 p {
-                min-width: 90px;
+                min-width: 50px;
         }
 
 
