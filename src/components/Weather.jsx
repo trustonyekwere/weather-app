@@ -12,6 +12,7 @@ import snowy_icon from '../assets/snowy.png'
 import sunny_icon from '../assets/sunny.png'
 import night_icon from '../assets/night.png'
 import wind_icon from '../assets/wind.png'
+import mist_icon from '../assets/mist.png'
 
 // creating weather component
 const Weather = () => {
@@ -40,8 +41,8 @@ const Weather = () => {
         "11n": storm_icon,
         "13d": snowy_icon,
         "13n": snowy_icon,
-        "50d": wind_icon,
-        "50n": wind_icon,
+        "50d": mist_icon,
+        "50n": mist_icon,
     }
 
     //  function to fetch weather data from openweathermap api 
