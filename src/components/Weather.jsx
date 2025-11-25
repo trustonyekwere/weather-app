@@ -87,7 +87,7 @@ const Weather = () => {
 
     // testing search logic / default city
     useEffect(()=> {
-        search("lagos");
+        search("abuja");
     },[])
 
     return (
